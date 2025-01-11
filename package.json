@@ -1,0 +1,14 @@
+{
+  "name": "cloud_speak",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.293",
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}

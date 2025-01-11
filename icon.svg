@@ -1,0 +1,10 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+	<title>logo</title>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #581eff } 
+		.t1 { font-size: 20px;fill: #ffffff;font-weight: 400;font-family: "DMSerifText-Regular", "DM Serif Text" } 
+		.t2 { font-size: 20px;fill: #ffffff;font-family: "Arial" } 
+	</style>
+	<path class="s0" d="m56 86c0-30 80-30 80 0 30 0 30 50 0 50h-70c-30 0-30-20-10-30z"/>
+</svg>
