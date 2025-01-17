@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.0.293",
+    "copy-webpack-plugin": "^12.0.2",
     "typescript": "^5.5.3"
   },
   "private": true
