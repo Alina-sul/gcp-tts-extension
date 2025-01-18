@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Cloud Speak",
-  "version": "1.0",
+  "name": "GCP TTS Extension",
+  "version": "0.1.0",
   "description": "Process selected text through Google TTS API",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage", "identity"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "dist/service-worker.js"
@@ -15,12 +15,19 @@
     }
   ],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "menu-popup.html",
     "default_icon": "images/icon.png"
+  },
+  "oauth2": {
+    "client_id": "501979446059-5m3pi6lcovbrlpdjg1ogg0jjgsgcn91c.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/cloud-platform"]
   },
   "web_accessible_resources": [
     {
-      "resources": ["images/icon.svg", "images/selection-icon.svg"],
+      "resources": [
+        "images/icon.svg",
+        "images/selection-icon.svg"
+      ],
       "matches": ["<all_urls>"]
     }
   ]
