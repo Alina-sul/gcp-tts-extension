@@ -1,23 +1,5 @@
 import MessageSenderWorker = chrome.runtime.MessageSender;
 
-chrome.action.onClicked.addListener(async (tab) => {
-  // Check if the token exists in storage
-  chrome.storage.local.get('apiKey', (data) => {
-    if (!data.apiKey) {
-      console.log('No token found, opening popup...');
-      chrome.windows.create({
-        url: 'popup.html',
-        type: 'popup',
-        width: 300,
-        height: 200,
-      });
-    } else {
-      console.log('Token found:', data.authToken);
-      chrome.tabs.sendMessage(tab.id!, { action: 'tokenExists', token: data.authToken });
-    }
-  });
-});
-
 chrome.runtime.onMessage.addListener(
   async (message: any, sender: MessageSenderWorker, sendResponse: (response?: any) => void) => {
     if (message.type === 'SEND_TO_TTS') {
@@ -62,7 +44,7 @@ chrome.runtime.onMessage.addListener(
               if (tabs[0]?.id) {
                 chrome.tabs.sendMessage(tabs[0].id, {
                   type: 'PLAY_AUDIO',
-                  audioUrl: 'data:audio/mp3;base64,' + data.audioContent,
+                  audioContent: data.audioContent,
                 });
               }
             });

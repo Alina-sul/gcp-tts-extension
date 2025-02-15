@@ -92,13 +92,36 @@ async function saveApiKey(apiKey: string): Promise<void> {
   });
 }
 
-// Play audio
+// // Play audio
+// chrome.runtime.onMessage.addListener(
+//   async (message: any, sender: MessageSenderContent, sendResponse: (response?: any) => void) => {
+//     if (message.type === 'PLAY_AUDIO') {
+//       console.log('Playing audio...');
+//       const audio = new Audio(message.audioUrl);
+//       await audio.play();
+//     }
+//   },
+// );
+
 chrome.runtime.onMessage.addListener(
   async (message: any, sender: MessageSenderContent, sendResponse: (response?: any) => void) => {
     if (message.type === 'PLAY_AUDIO') {
-      console.log('Playing audio...');
-      const audio = new Audio(message.audioUrl);
-      await audio.play();
+      console.log('Received audio in content script. Converting base64 to blob...');
+      try {
+        const bytes = new Uint8Array(
+          atob(message.audioContent)
+            .split('')
+            .map((char) => char.charCodeAt(0)),
+        );
+        const blob = new Blob([bytes], { type: 'audio/mp3' });
+        const blobUrl = URL.createObjectURL(blob);
+
+        const audio = new Audio(blobUrl);
+        await audio.play();
+        console.log('Playback started with a Blob URL.');
+      } catch (error) {
+        console.error('Error playing audio:', error);
+      }
     }
   },
 );

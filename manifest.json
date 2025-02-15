@@ -15,7 +15,7 @@
     }
   ],
   "action": {
-    "default_popup": "menu-popup.html",
+    "default_popup": "play-audio.html",
     "default_icon": "images/icon.png"
   },
   "oauth2": {
@@ -24,7 +24,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["images/icon.svg", "images/selection-icon.svg"],
+      "resources": ["images/icon.svg", "images/selection-icon.svg", "play-audio.html"],
       "matches": ["<all_urls>"]
     }
   ]
