@@ -24,10 +24,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [
-        "images/icon.svg",
-        "images/selection-icon.svg"
-      ],
+      "resources": ["images/icon.svg", "images/selection-icon.svg"],
       "matches": ["<all_urls>"]
     }
   ]
